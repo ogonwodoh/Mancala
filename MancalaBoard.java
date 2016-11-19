@@ -162,7 +162,7 @@ public class MancalaBoard{
 		return "OK";
 		
 	}
-	//add a piece to the board
+	//add a piece to a node
 	public void addPieces(MancalaNode x){
 		x.pieces++;
 	}
