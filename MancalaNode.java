@@ -1,4 +1,5 @@
 package Mancala;
+//a class that mimics a node in a mancala board
 public class MancalaNode {
 	String player;
 	Integer pieces;

@@ -19,7 +19,9 @@ public class MancalaGame {
 				System.out.println("Can't pick "+ x+". Player 1, please choose a node in the range 1-6.");
 				play="player1";
 				x=in.nextInt();
-			}			System.out.println("Player 2, please choose a node to move");
+			}		
+			board.BoardStanding();
+			System.out.println("Player 2, please choose a node to move");
 			play="player2";
 			x=in.nextInt();
 			while(!board.pickNode(x, play).equals("OK")){

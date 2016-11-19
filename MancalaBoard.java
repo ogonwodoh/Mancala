@@ -1,8 +1,7 @@
 package Mancala;
 
-import java.util.Iterator;
-
-public class MancalaBoard implements Iterable<MancalaNode>{
+//a class that creates a Mancala board
+public class MancalaBoard{
 	private MancalaNode a;
 	private MancalaNode b;
 	private MancalaNode c;
@@ -20,6 +19,7 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 	private java.util.ArrayList<MancalaNode> sideA;
 	private java.util.ArrayList<MancalaNode> sideB;
 	
+	//constructor
 	public  MancalaBoard(){
 		sideA=new java.util.ArrayList<>();
 		sideB=new java.util.ArrayList<>();
@@ -47,6 +47,8 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 		sideB.add(g);sideB.add(h);sideB.add(i);sideB.add(j);sideB.add(k);sideB.add(l);
 
 	}
+	
+	//public method to determine if the game is over and if there's a winner
 	public String isWinner(){
 		Boolean A=true;
 		Boolean B=true;
@@ -77,6 +79,8 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 		
 		return "Nobody has won yet";
 	}
+	
+	//given a number corresponding to a position in the board, get the node of that position
 	private MancalaNode getNode(Integer n){
 		for(MancalaNode node : sideA){
 			if(node.boardNum==n){
@@ -91,6 +95,8 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 		
 		return null;
 	}
+	
+	//determine if the board is empty
 	public Boolean emptyBoard(){
 		Boolean Empty=true;
 		for(MancalaNode n: sideB){
@@ -113,6 +119,8 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 		}
 		return Empty;
 	}
+	
+	//public method to pick a node, empty it and move its pieces
 	public String pickNode(Integer n, String player){
 		MancalaNode node =getNode(n);
 		if (node!=null){
@@ -123,13 +131,15 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 			return "DNE";
 		}
 	}
+	
+	//determine if there are no pieces in a MancalaNode
 	public Boolean noPieces(MancalaNode n){
 		if(n.pieces==0){
 			return true;
 		}
 		return false;
 	}
-	
+	//private method to empty a node and move its pieces
 	private String movePieces(MancalaNode n, String player){
 		if(!n.player.equals(player)){
 			return "Not your side! You are not allowed to move this node!!!";
@@ -152,9 +162,11 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 		return "OK";
 		
 	}
+	//add a piece to the board
 	public void addPieces(MancalaNode x){
 		x.pieces++;
 	}
+	//print out how the board is looking
 	public void BoardStanding(){
 		System.out.println("Node 1 has " +a.pieces + " pieces");
 		System.out.println("Node 2 has " +b.pieces + " pieces");
@@ -172,11 +184,6 @@ public class MancalaBoard implements Iterable<MancalaNode>{
 		System.out.println("Player 2's pit has " +pitB.pieces + " pieces");
 
 		
-	}
-	@Override
-	public Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }
